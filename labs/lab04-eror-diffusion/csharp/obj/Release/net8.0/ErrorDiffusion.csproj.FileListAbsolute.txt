@@ -1,0 +1,15 @@
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\bin\Release\net8.0\ErrorDiffusion.exe
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\bin\Release\net8.0\ErrorDiffusion.deps.json
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\bin\Release\net8.0\ErrorDiffusion.runtimeconfig.json
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\bin\Release\net8.0\ErrorDiffusion.dll
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\bin\Release\net8.0\ErrorDiffusion.pdb
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\ErrorDiffusion.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\ErrorDiffusion.AssemblyInfoInputs.cache
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\ErrorDiffusion.AssemblyInfo.cs
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\ErrorDiffusion.csproj.CoreCompileInputs.cache
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\ErrorDiffusion.sourcelink.json
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\ErrorDiffusion.dll
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\refint\ErrorDiffusion.dll
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\ErrorDiffusion.pdb
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\ErrorDiffusion.genruntimeconfig.cache
+D:\Github\Operating_System\labs\lab04-eror-diffusion\csharp\obj\Release\net8.0\ref\ErrorDiffusion.dll
