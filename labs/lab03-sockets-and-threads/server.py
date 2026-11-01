@@ -86,7 +86,7 @@ def main():
 
             # 5. Create a thread so the main loop can accept the next client right away
             t = threading.Thread(target=handle_client, args=(conn, addr), daemon=True)
-            handle_client(conn, addr)
+            t.start()
             print(f"[ACTIVE THREADS] {threading.active_count() - 1}")
     except KeyboardInterrupt:
         print("\n[SHUTDOWN] Server stopping.")

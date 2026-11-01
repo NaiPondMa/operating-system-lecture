@@ -1,1 +1,19 @@
+# Python
 /venv
+.venv/
+__pycache__/
+*.pyc
+
+# C# / .NET
+bin/
+obj/
+
+# Lab leftovers (see lab 1 exercises)
+nohup.out
+disk.img
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
