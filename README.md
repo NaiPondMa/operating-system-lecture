@@ -17,7 +17,8 @@ Each lab has a folder with a short lecture, runnable code, and practice question
 | [1](labs/lab01-linux-commands/) | Linux commands | OS basics, processes, files, users, network, utilities | ✅ Ready |
 | 2 | *(coming)* | | ⏳ |
 | [3](labs/lab03-sockets-and-threads/) | Sockets and threads | IPC, system calls, blocking, threads, locks | ✅ Ready |
-| [4](labs/lab04-readers-writers/) | Readers–writers problem | Synchronization, mutex, semaphore, starvation | 🚧 Lecture only |
+| [4](labs/lab04-eror-diffusion/) | Error diffusion (parallel dithering) | Data dependency, pipeline, wavefront, threads vs processes, GIL, shared memory | ✅ Ready |
+| [5](labs/lab05-readers-writers/) | Readers–writers problem | Synchronization, mutex, semaphore, starvation | 🚧 Lecture only |
 
 Need a word explained? See the [glossary](docs/glossary.md).
 
@@ -43,7 +44,8 @@ Operating_System/
     ├── _template/         ← copy this to start a new lab
     ├── lab01-linux-commands/
     ├── lab03-sockets-and-threads/
-    └── lab04-readers-writers/
+    ├── lab04-eror-diffusion/
+    └── lab05-readers-writers/
 ```
 
 ## What you need
@@ -52,7 +54,8 @@ Operating_System/
 |-----|---------|
 | Lab 1 | Ubuntu/Debian Linux (a VM or WSL works). The package list is in the lab's lecture |
 | Lab 3 | Python 3 |
-| Lab 4 | .NET SDK (to run C# code) |
+| Lab 4 | Python 3 with `numpy` and `pillow` (`pip install numpy pillow matplotlib`) |
+| Lab 5 | .NET SDK (to run C# code) |
 
 ## Adding a new lab
 
