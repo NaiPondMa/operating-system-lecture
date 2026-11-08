@@ -1,4 +1,4 @@
-# Lab 4: The Readers–Writers Problem
+# Lab 5: The Readers–Writers Problem
 
 **Topic:** process synchronization. Many readers may share data, but a writer needs it alone.
 **Status:** 🚧 lecture ready. Assignment text ([exercises.md](exercises.md)) and code ([main.cs](main.cs)) are not added yet
