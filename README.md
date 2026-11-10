@@ -15,7 +15,7 @@ Each lab has a folder with a short lecture, runnable code, and practice question
 | Lab | Topic | Main ideas | Status |
 |:---:|-------|------------|:------:|
 | [1](labs/lab01-linux-commands/) | Linux commands | OS basics, processes, files, users, network, utilities | ✅ Ready |
-| 2 | *(coming)* | | ⏳ |
+| [2](labs/lab02-fork-client/) | Process creation | parent/child/pid, `ps` and `kill`, `fork()`/`exec()`/`wait()`, concurrent vs. parallel, Win32 `CreateProcess` | ✅ Ready |
 | [3](labs/lab03-sockets-and-threads/) | Sockets and threads | IPC, system calls, blocking, threads, locks | ✅ Ready |
 | [4](labs/lab04-eror-diffusion/) | Error diffusion (parallel dithering) | Data dependency, pipeline, wavefront, threads vs processes, GIL, shared memory | ✅ Ready |
 | [5](labs/lab05-readers-writers/) | Readers–writers problem | Synchronization, mutex, semaphore, starvation | 🚧 Lecture only |
@@ -43,6 +43,7 @@ Operating_System/
 └── labs/
     ├── _template/         ← copy this to start a new lab
     ├── lab01-linux-commands/
+    ├── lab02-fork-client/
     ├── lab03-sockets-and-threads/
     ├── lab04-eror-diffusion/
     └── lab05-readers-writers/
@@ -53,8 +54,9 @@ Operating_System/
 | For | Install |
 |-----|---------|
 | Lab 1 | Ubuntu/Debian Linux (a VM or WSL works). The package list is in the lab's lecture |
+| Lab 2 | Linux with `gcc` (a VM or WSL works): `sudo apt install gcc man-db manpages-dev psmisc` |
 | Lab 3 | Python 3 |
-| Lab 4 | Python 3 with `numpy` and `pillow` (`pip install numpy pillow matplotlib`) |
+| Lab 4 | Python 3 with `numpy` and `pillow` (`pip install numpy pillow matplotlib`), and/or the .NET SDK 8+ for the C# version |
 | Lab 5 | .NET SDK (to run C# code) |
 
 ## Adding a new lab

@@ -56,6 +56,34 @@ python to_grayscale.py        # edit the two file names at the bottom of the scr
 
 ---
 
+## Part 1b: Run the C# comparison
+
+Run from the `csharp` folder (the pictures are one folder up, so the path starts with `../`).
+The program runs the sequential **and** the parallel version and prints a table with the input name, size, both times in **ms**, the speed-up and the accuracy:
+
+```bash
+cd csharp
+dotnet run -c Release -- ../error-diffusion/error-diffusion/world-grayscale.png ../error-diffusion/error-diffusion/star-grayscale.png
+dotnet run -c Release -- ../error-diffusion/error-diffusion/star-grayscale.png --workers 4
+dotnet run -c Release -- ../error-diffusion/error-diffusion/star-grayscale.png --mode wavefront
+```
+
+Fill in this table for `star` (the accuracy must always be 100.00%):
+
+| Parallel version | Threads | Sequential (ms) | Parallel (ms) | Speed-up |
+|------------------|:-------:|:---------------:|:-------------:|:--------:|
+| pipeline | 2 | | | |
+| pipeline | 4 | | | |
+| pipeline | 8 | | | |
+| pipeline | 16 | | | |
+| wavefront | all | | | |
+
+Questions: Where is the best number of threads, and why does it get worse after it?
+Why is the speed-up smaller for `world` than for `star`?
+(Hint: C# threads really run in parallel, but one pixel takes only a few nanoseconds, so waiting for the row above and starting threads cost a lot.)
+
+---
+
 ## Part 2: Experiments
 
 Guess the result *before* you run it.
@@ -95,6 +123,15 @@ In `parallel_error_diffusion.py` change `LAG = 2` to `LAG = 0`, run `--mode proc
 <details><summary>Answer</summary>
 
 The similarity is not 100% any more (we saw 99.85% and 99.93%), and it differs from run to run. On a tiny picture you may be lucky and still get 100%, because a race only hurts when the timing is unlucky. Row `y` now reads and updates pixels the row above has not finished, which is a **race condition** (read too early, and lost `+=` updates). The result depends on timing, which is exactly what a race condition is. Put `LAG = 2` back. (`git checkout` the file, or edit it back.)
+</details>
+
+### Experiment 5 (C#): Sleep or spin?
+
+In `csharp/ErrorDiffusion.cs` the waiting loop spins (`Thread.SpinWait`). Replace it with `Thread.Sleep(1)` inside the loop and run the comparison again (look at the *Parallel (ms)* column).
+
+<details><summary>Answer</summary>
+
+The accuracy stays 100% but the parallel time gets much slower (in our test the pipeline went from about 20 ms to several seconds when we used a sleeping wait, far slower than the sequential version). A thread usually waits only a few microseconds for the row above, but a sleep lasts at least a millisecond. For very short waits, spinning is cheaper than a context switch. For long waits, sleeping is better because spinning burns CPU. This is the same trade-off the OS makes for a spinlock versus a blocking mutex.
 </details>
 
 ---
@@ -148,3 +185,15 @@ The similarity is not 100% any more (we saw 99.85% and 99.93%), and it differs f
 
    Task parallelism: different workers do different jobs (the pipeline: each worker has its own rows, at different positions). Data parallelism: the same operation on many data at once (the wavefront: one NumPy step for a whole diagonal).
    </details>
+
+9. In the C# version, why do we use `Volatile.Write` and `Volatile.Read` for the progress counters?
+   <details><summary>Answer</summary>
+
+   The CPU and compiler may reorder memory operations. `Volatile.Write` guarantees that the pixel values written *before* it are visible to other threads before the new counter value is. `Volatile.Read` guarantees the reader sees the counter before it reads the pixels. Without them a thread could see "row is ready" but still read old pixel data.
+   </details>
+
+10. Why does the C# wavefront *pull* errors instead of *pushing* them like the sequential code?
+    <details><summary>Answer</summary>
+
+    Two pixels on the same diagonal, `(y, x)` and `(y-1, x+2)`, both push error into cell `(y, x+1)`. In parallel this is a race condition (lost update). When every pixel pulls from its four feeders (which belong to earlier diagonals) and writes only its own cell, no two threads write the same memory. The sums are the same, so the picture is identical.
+    </details>
