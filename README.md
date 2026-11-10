@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# operating-system-lecture
-=======
-# operating_system
->>>>>>> 153229a (test)
-=======
 # Operating System Lab Library
 
 My notes, code and exercises for the Operating Systems course (2301274 Computer Systems).
@@ -64,4 +57,3 @@ Operating_System/
 1. Copy `labs/_template/` to `labs/labNN-short-name/` (two-digit number, for example `lab02-processes`).
 2. Fill in `README.md`, `lecture.md` and `exercises.md`. Put the code in the same folder.
 3. Add a row to the table above and new terms to [docs/glossary.md](docs/glossary.md).
->>>>>>> 35e4304 (renovate)
